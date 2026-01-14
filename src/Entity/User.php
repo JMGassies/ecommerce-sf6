@@ -51,6 +51,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column (type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $Created_at = null;
 
+    public function __construct() { 
+        $this->Created_at = new \DateTimeImmutable(); 
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -93,7 +97,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @param list<string> $roles
      */
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
@@ -108,7 +112,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -126,7 +130,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): static
+    public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
 
@@ -138,7 +142,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->Firstname;
     }
 
-    public function setFirstname(string $Firstname): static
+    public function setFirstname(string $Firstname): self
     {
         $this->Firstname = $Firstname;
 
@@ -150,7 +154,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->Address;
     }
 
-    public function setAddress(string $Address): static
+    public function setAddress(string $Address): self
     {
         $this->Address = $Address;
 
@@ -162,7 +166,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->Zipcode;
     }
 
-    public function setZipcode(string $Zipcode): static
+    public function setZipcode(string $Zipcode): self
     {
         $this->Zipcode = $Zipcode;
 
@@ -174,7 +178,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->City;
     }
 
-    public function setCity(string $City): static
+    public function setCity(string $City): self
     {
         $this->City = $City;
 
@@ -186,7 +190,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->Created_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $Created_at): static
+    public function setCreatedAt(\DateTimeImmutable $Created_at): self
     {
         $this->Created_at = $Created_at;
 
